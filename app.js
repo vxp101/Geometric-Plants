@@ -70,22 +70,29 @@ const store = {
 $('main').html('<button class="start">Start</button>')
 
 //add a counter for each
-function generateQuiz(q) {
+function generateQuiz() {
 
-  let currentQuestion = q.questionNumber
-
-  let quest = q.questions.forEach(function (arr) {
-    if (arr.quizNum === currentQuestion) {
-      return q.questions[arr].question
-    }
-  })
+  let num = store.questionNumber
 
   let template = `
   <div>
-  ${currentQuestion}
+  ${store.questionNumber + 1}
   </div>
-  <p>${q.questions}</p > <form> <input type="radio" id="answers" name="answers" value="">
-  <label for="answers">${q.questions}</label> </form>
+  <p>${store.questions[num].question}</p><form> <input type="radio" id="answers" name="answers" value="">
+  <label for="answers">${store.questions[num].answers[0]}</label>
+  <br>
+  <input type="radio" id="answers" name="answers" value="">
+  <label for="answers">${store.questions[num].answers[1]}</label>
+  <br>
+  <input type="radio" id="answers" name="answers" value="">
+  <label for="answers">${store.questions[num].answers[2]}</label>
+  <br>
+  <input type="radio" id="answers" name="answers" value="">
+  <label for="answers">${store.questions[num].answers[3]}</label>
+  <br>
+  <button class='previous'>Prev</button>
+  <button class='next'>Next</button>
+  </form>
 `
   return template
 
