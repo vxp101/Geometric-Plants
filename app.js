@@ -70,14 +70,25 @@ const store = {
 $('main').html('<button class="start">Start</button>')
 
 //add a counter for each
-function generateQuiz(q, itemIndex) {
-  let counter = 0;
-  console.log(q)
+function generateQuiz(q) {
+
+  let currentQuestion = q.questionNumber
+
+  let quest = q.questions.forEach(function (arr) {
+    if (arr.quizNum === currentQuestion) {
+      return q.questions[arr].question
+    }
+  })
+
   let template = `
-  <p>${q.question}</p> <form> <input type="radio" id="answers" name="answers" value="">
-  <label for="answers">${q.answers}</label> </form>
+  <div>
+  ${currentQuestion}
+  </div>
+  <p>${q.questions}</p > <form> <input type="radio" id="answers" name="answers" value="">
+  <label for="answers">${q.questions}</label> </form>
 `
   return template
+
 }
 
 
@@ -90,10 +101,10 @@ function render() {
     // function
     $('main').html(generateQuiz(store))
     //end
-    let start = store.questions.map((question, index) => {
-      return generateQuiz(question, index)
+    let start = store.questions.map((question) => {
+      return generateQuiz(question)
     })
-    console.log(start)
+
     return start
   })
   // End
@@ -128,4 +139,4 @@ render()
 
 /********** EVENT HANDLER FUNCTIONS **********/
 
-// These functions handle events (submit, click, etc)
+  // These functions handle events (submit, click, etc)
