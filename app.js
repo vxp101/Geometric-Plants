@@ -64,6 +64,18 @@ const store = {
   score: 0
 };
 
+$('main').html('<button class="start">Start</button>')
+
+
+function render() {
+
+  $('.start').on('click', function (e) {
+    e.preventDefault()
+  })
+
+}
+
+
 /**
  *
  * Technical requirements:
