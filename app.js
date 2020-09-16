@@ -6,7 +6,6 @@ const store = {
   questions: [
 
     {
-      quizNum: 1,
       question: "What makes a plant green? ",
       answers: [
         'Chlorophyll',
@@ -17,7 +16,6 @@ const store = {
       correctAnswer: 'Chlorophyll'
     },
     {
-      quizNum: 2,
       question: 'How does a Rose get the color red?',
       answers: [
         'Anthocyanins',
@@ -29,7 +27,6 @@ const store = {
       correctAnswer: 'Anthocyanins'
     },
     {
-      quizNum: 3,
       question: 'What chemical breaks down food in the body?',
       answers: [
         'Hydrochloric Acid',
@@ -64,6 +61,7 @@ const store = {
   ],
   quizStarted: false,
   questionNumber: 0,
+  answerSelected: false,
   score: 0
 };
 
@@ -99,17 +97,18 @@ function generateQuiz() {
 
 
 
-  let answerSelected = false
-
+  //
   $("input[type='radio']").on('click', function () {
-    answerSelected = !answerSelected
+
+    console.log(store.answerSelected)
+
   })
+
 
   $('.next').on('click', function (e) {
 
     e.preventDefault()
-    if (answerSelected) {
-      num += 1
+    if (store.answerSelected) {
       return template
     }
     console.log(num)
@@ -126,6 +125,7 @@ function render() {
   change store.questions to item.questions*/
   $('.start').on('click', function (e) {
     e.preventDefault()
+    store.quizStarted = true
     // function
     $('main').html(generateQuiz(store))
     //end
