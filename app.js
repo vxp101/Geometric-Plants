@@ -69,12 +69,48 @@ const store = {
 
 $('main').html('<button class="start">Start</button>')
 
+// use num as an index in template
+
 //add a counter for each
 function generateQuiz() {
 
   let num = store.questionNumber
 
   let template = `
+   <div>
+   ${store.questionNumber + 1}
+   </div>
+   <p>${store.questions[num].question}</p><form> <input type="radio" id="answers" name="answers" value="">
+   <label for="answers">${store.questions[num].answers[0]}</label>
+   <br>
+   <input type="radio" id="answers" name="answers" value="">
+   <label for="answers">${store.questions[num].answers[1]}</label>
+   <br>
+   <input type="radio" id="answers" name="answers" value="">
+   <label for="answers">${store.questions[num].answers[2]}</label>
+   <br>
+   <input type="radio" id="answers" name="answers" value="">
+   <label for="answers">${store.questions[num].answers[3]}</label>
+   <br>
+   <button class='previous'>Prev</button>
+   <button class='next'>Next</button>
+   </form>
+ `
+
+
+
+  let answerSelected = false
+
+  $("input[type='radio']").on('click', function () {
+    answerSelected = !answerSelected
+  })
+
+  $('.next').on('click', function (e) {
+
+    e.preventDefault()
+    if (answerSelected) {
+      num += 1
+      let template = `
   <div>
   ${store.questionNumber + 1}
   </div>
@@ -94,12 +130,16 @@ function generateQuiz() {
   <button class='next'>Next</button>
   </form>
 `
+    }
+    console.log(num)
+    console.log(template)
+  })
   return template
 
 }
 
-
 function render() {
+
   //function
   /* When turned into a function do function (item){...} and
   change store.questions to item.questions*/
