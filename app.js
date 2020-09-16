@@ -4,26 +4,60 @@
 const store = {
   // 5 or more questions are required
   questions: [
+
     {
-      question: 'What color is broccoli?',
+      question: "What makes a plant green? ",
       answers: [
-        'red',
-        'orange',
-        'pink',
-        'green'
+        'Chlorophyll',
+        'Mitochondria',
+        'Anthocyanins',
+        'Flavanoids',
       ],
-      correctAnswer: 'green'
+      correctAnswer: 'Chlorophyll'
     },
     {
-      question: 'What is the current year?',
+      question: 'How does a Rose get the color red?',
       answers: [
-        '1970',
-        '2015',
-        '2019',
-        '2005'
+        'Anthocyanins',
+        'Hydrochloric Acid',
+        'Hydrogen Oxide',
+        'Sulfuric Acid'
+
       ],
-      correctAnswer: '2019'
-    }
+      correctAnswer: 'Anthocyanins'
+    },
+    {
+      question: 'What chemical breaks down food in the body?',
+      answers: [
+        'Hydrochloric Acid',
+        'Dihydrogen Monoxide',
+        'Cyanide',
+        'Magnesium Oxide'
+      ],
+      correctAnswer: 'Hydrochloric Acid'
+    },
+    /* {
+        question: 'text here',
+        answers: [
+
+        ],
+        correctAnswer:
+      },
+      {
+        question: 'text here',
+        answers: [
+
+        ],
+        correctAnswer:
+      },
+      {
+        question: 'text here',
+        answers: [
+
+        ],
+        correctAnswer:
+      }*/
+
   ],
   quizStarted: false,
   questionNumber: 0,
@@ -31,10 +65,10 @@ const store = {
 };
 
 /**
- * 
+ *
  * Technical requirements:
- * 
- * Your app should include a render() function, that regenerates the view each time the store is updated. 
+ *
+ * Your app should include a render() function, that regenerates the view each time the store is updated.
  * See your course material and access support for more details.
  *
  * NO additional HTML elements should be added to the index.html file.
@@ -42,7 +76,7 @@ const store = {
  * You may add attributes (classes, ids, etc) to the existing HTML elements, or link stylesheets or additional scripts if necessary
  *
  * SEE BELOW FOR THE CATEGORIES OF THE TYPES OF FUNCTIONS YOU WILL BE CREATING 👇
- * 
+ *
  */
 
 /********** TEMPLATE GENERATION FUNCTIONS **********/
