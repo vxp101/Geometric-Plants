@@ -99,7 +99,7 @@ function generateQuiz() {
 
   //
   $("input[type='radio']").on('click', function () {
-
+    store.answerSelected = true
     console.log(store.answerSelected)
 
   })
@@ -111,32 +111,29 @@ function generateQuiz() {
     if (store.answerSelected) {
       return template
     }
-    console.log(num)
-    console.log(template)
+    render()
+
   })
   return template
 
 }
 
+//function
+/* When turned into a function do function (item){...} and
+change store.questions to item.questions*/
+
+//I took this out of render() and it works still.
+
+$('.start').on('click', function (e) {
+  e.preventDefault()
+  store.quizStarted = true
+  // function
+  $('main').html(generateQuiz(store))
+
+  return start
+})
+
 function render() {
-
-  //function
-  /* When turned into a function do function (item){...} and
-  change store.questions to item.questions*/
-  $('.start').on('click', function (e) {
-    e.preventDefault()
-    store.quizStarted = true
-    // function
-    $('main').html(generateQuiz(store))
-    //end
-    let start = store.questions.map((question) => {
-      return generateQuiz(question)
-    })
-
-    return start
-  })
-  // End
-
 
 
 }
